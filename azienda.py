@@ -3,42 +3,31 @@ from impiegato import Impiegato
 
 i = Impiegato("Mario", "Rossi", 20000)
 
-#i.stampati()
-
-#print(i.descriviti())
-
 print(i) # Equivalente a print(i.__str__())
 
 print(i.__repr__())
 
-print(i) # Anche senza usare i metodi definiti, ora che sono stati definiti
-         # non viene più stampato il riferimento/l'ind. di memoria
-
-# Posso anche creare altri oggetti Impiegato
-
+# Posso anche creare altri oggetti Impiegato ed aggiungerli ad una struttura dati
 altroImpiegato = Impiegato("Gianna", "Verdi", 50000)
-
-# Ed aggiungerli ad una struttura dati, es. una lista
 
 listaDiImpiegati = []
 
 listaDiImpiegati.append(i)
 listaDiImpiegati.append(altroImpiegato)
 
-# Che posso poi scandire, es. con un for, e stampare
-
+# Che posso poi scandire con un for e stampare
 for impiegato in listaDiImpiegati:
     print(impiegato.__str__()) # Anche senza __str__()
 
-# Posso anche introdurre il concetto di dipartimento,
-# es. ciascuno caratterizzato da un nome: basta
-# definire una nuova classe, Dipartimento
+# Posso anche introdurre il concetto di dipartimento:
+# basta definire una nuova classe, Dipartimento (in dipartimento.py)
 
 # Posso poi costruire un oggetto di quel tipo/quella classe
+dipartimentoA = Dipartimento("Risorse umane") # Assegno il nome al dipartimento che creo
 
-dipartimentoA = Dipartimento("Risorse umane")
+# Come faccio poi a rappresentare il fatto che un impiegato lavori in un
+# determinato dipartimento?
 
-# Come faccio poi a dire/a rappresentare il fatto che
-# un impiegato lavori in un determinato dipartimento?
+# Aggiungo la variabile self._dipartimento alla class Impiegato
 
 impiegato._dipartimento = dipartimentoA

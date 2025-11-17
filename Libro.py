@@ -1,8 +1,5 @@
-# Nella OOP una regola d'oro è
-# quella di "proteggere" gli attibuti
-# definendoli privati
-
-# In Python con _ (lasca) o __ (seria)
+# Nella OOP una regola d'oro è quella di "proteggere" gli attibuti
+# definendoli privati, in Python con _ (lasca) o __ (seria)
 
 class Libro:
     def __init__(self):
@@ -21,7 +18,7 @@ class Libro:
     """
     def impostaAnno(self, anno):
         if anno<0:
-            print("Tentativo di imp. anno negativo")
+            print("Tentativo di impostare anno negativo")
         else:
             self.__anno = anno
     """
@@ -33,28 +30,23 @@ class Libro:
     @anno.setter
     def anno(self, anno):
         if anno<0:
-            print("Tentativo di imp. anno negativo")
+            print("Tentativo di impostare anno negativo")
         else:
             self._anno = anno
 
 l1 = Libro()
 
-print(l1.__titolo) # L'attributo non è più accessibile (o quasi)
-                   # Python gli cambia nome per rendere
-                   # più difficile accedere in lettura/scrittura
-                   # al valore
+# L'attributo non è più accessibile (o quasi, è più difficile accedere in
+# lettura/scrittura al valore
+print(l1.__titolo)
 
 l1._anno = 2008
 l1._anno = -500
 
-# l1.__numPagine=-2000
-
 # Come accedere ad un attributo non visibile?
-
 l1.impostaAnno(-500)
 
 # Se ho dichiarato getter e setter con i decoratori
-
 l1.anno = 2008 # Pyhton chiama il setter
 print(l1.anno) # Python chiama il getter
 
